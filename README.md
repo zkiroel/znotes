@@ -1,20 +1,3 @@
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
 ## Введение в NetPalm - Часть 2
 
 ![netpalm_logo](/images/logo.png)
@@ -43,3 +26,14 @@ Syntax highlighted code block
 ![p2e112](/images/part2/p2e112.png)
 
 #### 1.2 Вносим изменения на интерфейс
+
+Далее мы изменим описание интерфейса GigabitEthernet3. Будем делать это с помощью метода setconfig, как описано [тут](https://documenter.getpostman.com/view/2391814/SzYbxcQx?version=latest#c6c4ca08-6ba5-4272-b9cb-457e1a986d57).
+
+В атрибуте `config` мы передаём команды, которые хотим выполнить на нашем устройстве. Обратите внимание, что Netmiko не требует `conf t`.
+
+![p2e121](/images/part2/p2e121.png)
+
+Ответ о выполненных нами изменениях. Обратите внимание, на `"status": "success"`.
+![p2e122](/images/part2/p2e122.png)
+
+
