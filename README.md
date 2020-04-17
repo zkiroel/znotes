@@ -1,13 +1,3 @@
-## Welcome to GitHub Pages
-
-You can use the [editor on GitHub](https://github.com/zkiroel/zkinotes/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
 ```markdown
 Syntax highlighted code block
 
@@ -25,13 +15,25 @@ Syntax highlighted code block
 
 [Link](url) and ![Image](src)
 ```
+## Введение в NetPalm - Часть 2
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+![netpalm_log](/logo.png)
 
-### Jekyll Themes
+### От автора оригинала:
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/zkiroel/zkinotes/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Этот пост является продолжением [первой части](https://blog.wimwauters.com/networkprogrammability/2020-04-14_netpalm_introduction_part1/), в которой мы сосредоточились на получении информации с наших устройств с помощью **NetPalm**. Во второй части ([ссылка на оригинал](https://blog.wimwauters.com/networkprogrammability/2020-04-15_netpalm_introduction_part2/)) мы сосредоточимся на изменении/обновлении информации на устройстве. Опять же, для этого мы будем использовать API NetPalm, чередуя различные базовые инструменты.
 
-### Support or Contact
+*April 15, 2020*
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+*Всё что ниже - относительно вольный перевод статьи.*
+
+### Пример 1: изменение конфигурации с Netmiko.
+
+В этом примере наша цель - внести некие изменения на устройство, делать будем следующее:
+1.1 проверить существующие интерфейсы;
+1.2 Внести изменения на интерфейс;
+1.3 опросить интерфейс и убедиться, что изменение применилось.
+
+#### 1.1 Проверка существующих интерфейсов
+
+
