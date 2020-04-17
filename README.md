@@ -17,7 +17,7 @@ Syntax highlighted code block
 ```
 ## Введение в NetPalm - Часть 2
 
-![netpalm_log](/logo.png)
+![netpalm_log](/images/logo.png)
 
 ### От автора оригинала:
 
