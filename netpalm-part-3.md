@@ -15,11 +15,11 @@ NetPalm позволяет изменять конфигурацию на уст
 Сначала создадим шаблон Jinja2. Создадим файл `loopback.j2` и поместим его в папку `netpalm/backend/plugins/jinja2_templates`. 
 Будем использовать следующий шаблон:
 ```
-{% for interface in interfaces %}
+/{% for interface in interfaces %}
    interface {{interface.name}}
    description {{interface.description}}
    ip address {{interface.ipv4_addr}} {{interface.ipv4_mask}}
-{% endfor %}
+/{% endfor %}
 ```
 
 NetPalm предоставляет возможность работать с помощью шаблона Jinja2 (см. [здесь](https://documenter.getpostman.com/view/2391814/SzYbxcQx?version=latest#85056012-e546-41d7-b832-19e9285823f7) для Netmiko и [здесь](https://documenter.getpostman.com/view/2391814/SzYbxcQx?version=latest#44fdde62-c21c-417b-95d4-54fa2640d135) для NAPALM.
