@@ -129,7 +129,7 @@ NetPalm поддерживает работу с сервисными шабло
 
 Обладая этой информацией, NetPalm знает, что вы хотите получить информацию сервисным шаблоном, и выполнит команду, указанную вами в разделе `retrieve` сервисного шаблона.
 
-Попробуем. Переходим в POSTMAN и делаем GET-запрос по адресу http://localhost:9000/service/loopback. Здесь слово loopback относится к имени шаблона обслуживания (но без расширения j2).
+Попробуем. Переходим в POSTMAN и делаем GET-запрос по адресу `http://localhost:9000/service/loopback`. Здесь слово loopback относится к имени шаблона обслуживания (но без расширения j2).
 ![image6](/images/part3/6.png)
 
 В ответе есть ID задачи, который мы можем использовать для запроса `http://localhost:9000/task/id`. При этом будет показан список интерфейсов на нашем устройстве.
@@ -195,8 +195,15 @@ Cоздание\удаление разделов в целом аналогич
 ![image9](/images/part3/9.png)
 
 Тоже самое через SSH:
-
-![image10](/images/part3/10.png)
+```
+csr1000v-1#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+GigabitEthernet1       10.10.20.48     YES other  up                    up
+GigabitEthernet2       10.255.255.2    YES other  administratively down down
+GigabitEthernet3       10.255.255.2    YES other  up                    up
+Loopback250            200.200.200.20  YES TFTP   up                    up
+Loopback251            200.200.200.21  YES TFTP   up                    up
+```
 
 #### Удаления конфигурации раздел
 
@@ -243,10 +250,10 @@ Cоздание\удаление разделов в целом аналогич
 Очень похоже на раздел `create`, но здесь мы имеем в виду шаблон `loopback_remove` и предоставляем только имя интерфейса, который мы хотим удалить.
 
 Так как мы имеем дело с функцией delete, то нам нужно указать операцию `delete` в JSON-body.
-![image11](/images/part3/11.png)
+![image10](/images/part3/10.png)
 
 Посмотрим результат в селекте POSTMAN'a:
-![image12](/images/part3/12.png)
+![image11](/images/part3/11.png)
 
 И в SSH:
 ```
