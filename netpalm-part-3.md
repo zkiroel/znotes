@@ -13,7 +13,7 @@ NetPalm позволяет изменять конфигурацию на уст
 В этой статье мы добавим несколько loopback интерфейсов на нашем устройстве, но с использованием NetPalm (с использованием NAPALM или Netmiko).
 
 Сначала создадим шаблон Jinja2. Создадим файл `loopback.j2` и поместим его в папку `netpalm/backend/plugins/jinja2_templates`. 
-Мы будем использовать следующий шаблон:
+Будем использовать следующий шаблон:
 ```
 {% for interface in interfaces %}
    interface {{interface.name}}
