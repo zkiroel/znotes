@@ -14,6 +14,9 @@ NetPalm позволяет изменять конфигурацию на уст
 
 Сначала создадим шаблон Jinja2. Создадим файл `loopback.j2` и поместим его в папку `netpalm/backend/plugins/jinja2_templates`. 
 Будем использовать следующий шаблон:
+
+ВНИМАНИЕ тут накладочка с отображением на github.io
+чтобы шаблон был верным надо удалить все `\`
 ```
 \{\% for interface in interfaces \%\}
    interface \{\{interface.name\}\}
@@ -21,6 +24,8 @@ NetPalm позволяет изменять конфигурацию на уст
    ip address \{\{interface.ipv4_addr\}\} \{\{interface.ipv4_mask\}\}
 \{\% endfor \%\}
 ```
+решил дополнительно сделать скрин всё же:
+![imagej1](/images/part3/j1.png)
 
 NetPalm предоставляет возможность работать с помощью шаблона Jinja2 (см. [здесь](https://documenter.getpostman.com/view/2391814/SzYbxcQx?version=latest#85056012-e546-41d7-b832-19e9285823f7) для Netmiko и [здесь](https://documenter.getpostman.com/view/2391814/SzYbxcQx?version=latest#44fdde62-c21c-417b-95d4-54fa2640d135) для NAPALM.
 
@@ -172,12 +177,14 @@ Cоздание\удаление разделов в целом аналогич
 
 Далее вам нужно будет создать файл в папке `netpalm > backend > plugins > jinja2_templates`. Мы назовем файл `loopback_create.j2` и он будет выглядеть следующим образом:
 ```
-{% for interface in interfaces %}
-   interface {{interface.name}}
-   description {{interface.description}}
-   ip address {{interface.ipv4_addr}} {{interface.ipv4_mask}}
-{% endfor %}
+\{\% for interface in interfaces \%\}
+   interface \{\{interface.name\}\}
+   description \{\{interface.description\}\}
+   ip address \{\{interface.ipv4_addr\}\} \{\{interface.ipv4_mask\}\}
+\{\% endfor \%\}
 ```
+![imagej2](/images/part3/j2.png)
+
 
 Это шаблон Jinja2, на самом деле тот же самый, который мы использовали в первом разделе статьи. Нам нужно будет передать данные в шаблон, и это именно то, что делает для нас `j2config` часть секции `create`. Как видно из приведенного выше фрагмента шаблона сервиса, мы предоставляем список из двух интерфейсов.
 
@@ -197,10 +204,11 @@ Cоздание\удаление разделов в целом аналогич
 
 Сначала создайте файл `loopback_remove.j2` в папке `netpalm > backend > plugins > jinja2_templates`, следующим содержанием:
 ```
-{% for interface in interfaces %}
-   no interface {{interface.name}}
-{% endfor %}
+\{\% for interface in interfaces \%\}
+   no interface \{\{interface.name\}\}
+\{\% endfor \%\}
 ```
+![imagej3](/images/part3/j3.png)
 
 В приведенном выше фрагменте обратите внимание на слово `no`, означающее, что мы хотим удалить интерфейс с нашего устройства. Также обратите внимание, что нам нужно знать только имя интерфейса.
 
